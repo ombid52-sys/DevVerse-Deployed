@@ -34,6 +34,15 @@
 
 ---
 
+## 🔒 Security Architecture
+
+- **ZipSlip & Path Traversal Prevention**: Absolute paths, `../`, null bytes, and drive roots are rejected on archive ingestion.
+- **Decompression Bomb Protection**: Enforces 250MB extracted size limits and a 10,000 file ceiling.
+- **Static Analysis**: Uploaded files are inspected without server-side execution.
+- **Audit Log Sanitization**: Passwords, tokens, codes, and credentials are automatically redacted before persistence.
+
+---
+
 ## 🚀 Quickstart
 
 ### 1. Clone & Install
@@ -63,38 +72,20 @@ cp .env.example .env
 | `BREVO_SENDER_NAME` | Sender display name | `DevVerse` |
 | `ADMIN_BOOTSTRAP_TOKEN` | Token for admin initialization | `your-secret-token` |
 
-### 3. Initialize Admin & Run
+### 3. Runtime and Deployment
 ```bash
-# Provision single master admin account
-npm run init-admin
-
-# Start development server
+# Local development server
 npm run dev
 ```
 Visit **[http://localhost:3000](http://localhost:3000)**.
 
----
-
-## 🧪 Testing & Verification
-
-DevVerse maintains strict pre-commit quality gates:
-
 ```bash
-# Run unit & security tests
-npm test
-
-# TypeScript verification
-npm run typecheck
-
-# Sync clean portable build
-npm run sync-portable
+# Compile production build
+npm run build
 ```
 
----
+```bash
+# Local production server
+npm start
+```
 
-## 🔒 Security Architecture
-
-- **ZipSlip & Path Traversal Prevention**: Absolute paths, `../`, null bytes, and drive roots are rejected on archive ingestion.
-- **Decompression Bomb Protection**: Enforces 250MB extracted size limits and a 10,000 file ceiling.
-- **Static Analysis**: Uploaded files are inspected without server-side execution.
-- **Audit Log Sanitization**: Passwords, tokens, codes, and credentials are automatically redacted before persistence.
