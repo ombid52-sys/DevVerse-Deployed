@@ -73,11 +73,11 @@ cp .env.example .env
 | `ADMIN_BOOTSTRAP_TOKEN` | Token for admin initialization | `your-secret-token` |
 
 ### 3. Runtime and Deployment
+
 ```bash
 # Local development server
 npm run dev
 ```
-Visit **[http://localhost:3000](http://localhost:3000)**.
 
 ```bash
 # Compile production build
@@ -88,4 +88,7 @@ npm run build
 # Local production server
 npm start
 ```
+
+Visit **[http://localhost:3000](http://localhost:3000)**.
+
 
